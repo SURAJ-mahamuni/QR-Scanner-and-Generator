@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">QR Scanner</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="code_data">Code Data</string>
+    <string name="scan">Scan</string>
+    <string name="history">History</string>
+    <string name="favorites">Favorites</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="call">Call</string>
+    <string name="scan_again">Scan Again</string>
+    <string name="open_url">Open Url</string>
+    <string name="open_mail">Open Mail</string>
+</resources>

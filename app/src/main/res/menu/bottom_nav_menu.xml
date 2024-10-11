@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_scan"
+        android:icon="@drawable/scan__ic"
+        android:title="Scan" />
+    <item
+        android:id="@+id/menu_history"
+        android:icon="@drawable/history_ic"
+        android:title="History" />
+</menu>

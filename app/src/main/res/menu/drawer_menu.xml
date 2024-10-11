@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_scan"
+        android:icon="@drawable/scan__ic"
+        android:title="@string/scan" />
+    <item
+        android:id="@+id/menu_history"
+        android:icon="@drawable/history_ic"
+        android:title="@string/history" />
+    <item
+        android:id="@+id/menu_favorites"
+        android:icon="@drawable/star_unfill_ic"
+        android:title="@string/favorites" />
+</menu>
