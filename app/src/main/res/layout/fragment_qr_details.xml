@@ -319,6 +319,7 @@
                     android:layout_marginTop="8dp"
                     android:onClick="@{()->viewModel.openUrl()}"
                     android:text="@string/open_mail"
+                    android:visibility="gone"
                     android:textColor="@color/white"
                     app:cornerRadius="@dimen/dimen_0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
