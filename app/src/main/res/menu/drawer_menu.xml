@@ -13,4 +13,12 @@
         android:id="@+id/menu_favorites"
         android:icon="@drawable/star_unfill_ic"
         android:title="@string/favorites" />
+    <item
+        android:id="@+id/menu_generate_qr"
+        android:icon="@drawable/star_unfill_ic"
+        android:title="Generate QR" />
+    <item
+        android:id="@+id/menu_setting"
+        android:icon="@drawable/setting_qr"
+        android:title="@string/settings" />
 </menu>

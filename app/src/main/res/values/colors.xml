@@ -6,4 +6,5 @@
     <color name="back_color">#F3F3F3</color>
     <color name="back_card">#FFFFFF</color>
     <color name="icon_c">#FF000000</color>
+    <color name="qr_category_color">#66A7D7FF</color>
 </resources>

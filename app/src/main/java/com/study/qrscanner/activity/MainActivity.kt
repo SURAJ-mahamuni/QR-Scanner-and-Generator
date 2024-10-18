@@ -5,6 +5,8 @@ import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,13 +17,24 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 import com.study.qrscanner.utils.AppEvent
 import com.study.qrscanner.R
 import com.study.qrscanner.databinding.ActivityMainBinding
+import com.study.qrscanner.utils.Constants.AD_UNIT_ID
 import com.study.qrscanner.utils.hideView
 import com.study.qrscanner.utils.showView
+import com.study.qrscanner.utils.toastMsg
 import com.study.qrscanner.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -65,6 +78,58 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun initializeAds() {
+        val backgroundScope = CoroutineScope(Dispatchers.IO)
+        backgroundScope.launch {
+            // Initialize the Google Mobile Ads SDK on a background thread.
+            MobileAds.initialize(this@MainActivity) {}
+        }
+
+        val adView = AdView(this)
+        adView.adUnitId = AD_UNIT_ID
+        adView.setAdSize(AdSize.BANNER)
+        binding.adView.removeAllViews()
+        binding.adView.addView(adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        adView.adListener = object : AdListener() {
+            override fun onAdClicked() {
+                toastMsg("onAdClicked")
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdClosed() {
+                toastMsg("onAdClosed")
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                Log.e("adMob", adError.cause.toString())
+                toastMsg("onAdFailedToLoad")
+                // Code to be executed when an ad request fails.
+            }
+
+            override fun onAdImpression() {
+                toastMsg("onAdImpression")
+                // Code to be executed when an impression is recorded
+                // for an ad.
+            }
+
+            override fun onAdLoaded() {
+                toastMsg("onAdLoaded")
+                // Code to be executed when an ad finishes loading.
+            }
+
+            override fun onAdOpened() {
+                toastMsg("onAdOpened")
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+        }
+    }
+
     private fun observables() {
         viewModel.appEvent.observe(this) {
             when (it) {
@@ -80,6 +145,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun openDrawer() {
         if (navController.currentDestination?.id == R.id.menu_favorites)
+            navController.navigateUp()
+        else if (navController.currentDestination?.id == R.id.fragment_generate_q_r)
             navController.navigateUp()
         else if (navController.currentDestination?.id != R.id.qrDetailsFragment)
             binding.drawerLayout.open()
@@ -104,8 +171,16 @@ class MainActivity : AppCompatActivity() {
                     binding.topBar.showView()
                     binding.bottomNavigation.showView()
                 }
+                R.id.settingsFragment -> {
+                    binding.topBar.showView()
+                    binding.bottomNavigation.showView()
+                }
 
                 R.id.qrDetailsFragment -> {
+                    binding.topBar.showView()
+                    binding.bottomNavigation.hideView()
+                }
+                R.id.fragment_generate_q_r -> {
                     binding.topBar.showView()
                     binding.bottomNavigation.hideView()
                 }
@@ -128,7 +203,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.menu_scan,
-                R.id.menu_history
+                R.id.menu_history,
+                R.id.menu_setting
             ), binding.drawerLayout
         )
         setSupportActionBar(binding.topBar)

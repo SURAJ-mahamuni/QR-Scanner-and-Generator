@@ -2,8 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="main_color">#003663</color>
+    <color name="main_color">#004B8A</color>
     <color name="back_color">#2C2C2C</color>
     <color name="back_card">#3A3A3A</color>
     <color name="icon_c">#FFFFFFFF</color>
+    <color name="qr_category_color">#8000427A</color>
 </resources>

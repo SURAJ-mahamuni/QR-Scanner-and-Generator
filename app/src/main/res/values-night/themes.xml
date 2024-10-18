@@ -4,7 +4,7 @@
         <!-- Customize your dark theme here. -->
          <item name="colorPrimary">@color/main_color</item>
     </style>
-    <style name="BottomNavigationIconStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+    <style name="BottomNavigationIconStyle" parent="">
         <item name="itemRippleColor">@android:color/transparent</item>
         <item name="itemIconTint">@color/bottom_nav_text_color_state_night</item>
         <item name="itemTextColor">@color/bottom_nav_text_color_state_night</item>

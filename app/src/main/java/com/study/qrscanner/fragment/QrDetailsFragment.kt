@@ -99,6 +99,7 @@ class QrDetailsFragment : BindingFragment<FragmentQrDetailsBinding>() {
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }
+                        binding.openMail.showView()
                         binding.formatIcon.setImageResource(R.drawable.email_format_ic)
 
                     }

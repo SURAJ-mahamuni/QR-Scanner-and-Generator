@@ -50,11 +50,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>() {
             camera = CodeScanner.CAMERA_BACK // or CAMERA_FRONT or specific camera id
             formats = CodeScanner.ALL_FORMATS // list of type BarcodeFormat,
             // ex. listOf(BarcodeFormat.QR_CODE)
-            autoFocusMode = AutoFocusMode.SAFE // or CONTINUOUS
+            autoFocusMode = AutoFocusMode.CONTINUOUS // or CONTINUOUS
             scanMode = ScanMode.SINGLE // or CONTINUOUS or PREVIEW
             isAutoFocusEnabled = true // Whether to enable auto focus or not
             isFlashEnabled = false // Whether to enable flash or not
 
+            isTouchFocusEnabled = true
 
             // Callbacks
             decodeCallback = DecodeCallback {
