@@ -14,19 +14,27 @@ class GenerateQrViewModel @Inject constructor() : ViewModel() {
 
     val appEvent: LiveData<AppEvent> get() = _appEvent
 
-    fun generateQrFromText(){
+    fun generateQrFromText() {
 
     }
-    fun generateQrFromUrl(){
+
+    fun generateQrFromUrl() {
 
     }
-    fun generateQrFromContact(){
+
+    fun generateQrFromContact() {
 
     }
-    fun generateQrFromEmail(){
+
+    fun generateQrFromEmail() {
 
     }
-    fun generateQrFromSms(){
+
+    fun generateQrFromSms() {
+
+    }
+
+    fun generateQrFromPhone() {
 
     }
 }

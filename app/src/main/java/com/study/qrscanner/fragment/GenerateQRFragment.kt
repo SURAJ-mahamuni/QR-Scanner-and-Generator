@@ -80,6 +80,10 @@ class GenerateQRFragment : BindingFragment<FragmentGenerateQRBinding>() {
                         R.string.sms -> {
                             smsToQrContainer.showView()
                         }
+
+                        R.string.phone -> {
+                            phoneToQrContainer.showView()
+                        }
                     }
                 }
             })

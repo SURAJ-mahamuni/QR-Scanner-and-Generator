@@ -16,7 +16,7 @@
     <string name="url_2_qr_title">Enter the url you want to convert to a QR code.</string>
     <string name="contact_2_qr_title">Enter the contact you want to convert to a QR code.</string>
     <string name="email_2_qr_title">Enter the email you want to convert to a QR code.</string>
-    <string name="sms_2_qr_title">Enter the sms you want to convert to a QR code.</string>
+    <string name="sms_2_qr_title">Enter the phone number you want to convert to a QR code.</string>
     <string name="generate_qr_code">Generate QR Code</string>
     <string name="text">Text</string>
     <string name="url">URL</string>
@@ -31,4 +31,5 @@
     <string name="enter_email_message_here">Enter message here</string>
     <string name="enter_sms_here">Enter phone number here</string>
     <string name="enter_message_for_sms_here">Enter message here</string>
+    <string name="enter_phone_here">Enter phone number here</string>
 </resources>
