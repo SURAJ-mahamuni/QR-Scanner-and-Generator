@@ -68,6 +68,8 @@ class MainActivity : AppCompatActivity() {
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
+        initializeAds()
+
         checkAndAskPermission()
 
         initializeNavController()
@@ -106,7 +108,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
-                Log.e("adMob", adError.cause.toString())
+                Log.e("adMob", adError.responseInfo.toString())
                 toastMsg("onAdFailedToLoad")
                 // Code to be executed when an ad request fails.
             }
